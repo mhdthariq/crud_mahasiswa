@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'database_helper.dart';
 import 'user.dart';
+import 'login_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
   @override
@@ -22,6 +23,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
     User newUser = User(username: username, password: password);
     await dbHelper.registerUser(newUser);
+
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => LoginScreen()),
+    );
   }
 
   @override
